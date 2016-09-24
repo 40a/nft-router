@@ -3,6 +3,7 @@
 #PRE
 include "/media/sysdata/app/gate/netfilter/sys/ntf_global/pre.nft"
 include "/media/sysdata/app/gate/netfilter/sys/ntf_global/ids.nft"
+include "/media/sysdata/app/gate/netfilter/sys/ntf_global/base_security.nft"
 include "/media/sysdata/app/gate/netfilter/sys/ntf_global/fw.nft"
 # ZONES INIT
 include "/media/sysdata/app/gate/netfilter/sys/zones_init/sys_zones_init.nft"

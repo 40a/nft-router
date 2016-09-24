@@ -1,0 +1,15 @@
+#!/usr/sbin/nft
+
+# bad tcp -> avoid network scanning:
+add rule gate_main F_INPUT_TO_GATE tcp flags & (fin|syn) == (fin|syn)			drop
+add rule gate_main F_INPUT_TO_GATE tcp flags & (syn|rst) == (syn|rst)			drop
+add rule gate_main F_INPUT_TO_GATE tcp flags & (fin|syn|rst|psh|ack|urg) < (fin)		drop # == 0 would be better, not supported yet. null packet
+add rule gate_main F_INPUT_TO_GATE tcp flags & (fin|syn|rst|psh|ack|urg) == (fin|psh|urg)	drop
+
+# allow icmp (ping) but limit flood attacks
+add rule gate_main F_INPUT_TO_GATE ip protocol icmp limit rate 10/second accept
+#add rule gate_main F_INPUT_TO_GATE icmp type { echo-request } accept
+
+add rule gate_main F_INPUT_TO_GATE ip protocol icmp drop
+add rule gate_main F_INPUT_TO_GATE ip6 nexthdr icmpv6 limit rate 10/second accept
+add rule gate_main F_INPUT_TO_GATE ip6 nexthdr icmpv6 drop
