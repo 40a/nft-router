@@ -1,0 +1,9 @@
+#!/usr/sbin/nft
+
+# ZONES INIT - INT
+include "/media/sysdata/app/gate/netfilter/sys/zones_init/int/zone1.nft"
+include "/media/sysdata/app/gate/netfilter/sys/zones_init/int/zone2.nft"
+include "/media/sysdata/app/gate/netfilter/sys/zones_init/int/zone3.nft"
+
+# ZONES INIT - EXT
+include "/media/sysdata/app/gate/netfilter/sys/zones_init/ext/zone1.nft"

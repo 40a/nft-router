@@ -1,0 +1,2 @@
+#!/usr/sbin/nft
+add rule gate_main R_FORWARD counter ip saddr @A_int_zone3___zone_ip_range ip daddr @A_int_zone2___zone_ip_range accept

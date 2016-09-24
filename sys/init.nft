@@ -5,10 +5,8 @@ include "/media/sysdata/app/gate/netfilter/sys/ntf_global/pre.nft"
 include "/media/sysdata/app/gate/netfilter/sys/ntf_global/ids.nft"
 include "/media/sysdata/app/gate/netfilter/sys/ntf_global/fw.nft"
 # ZONES INIT
-include "/media/sysdata/app/gate/netfilter/sys/nft_zones_init/zones_init.nft"
-# GATE FW
-include "/media/sysdata/app/gate/netfilter/op/fw_rules.nft"
+include "/media/sysdata/app/gate/netfilter/sys/zones_init/sys_zones_init.nft"
 # ZONES DATA INIT
-include "/media/sysdata/app/gate/netfilter/sys/nft_zones_init/zones_data_init.nft"
+include "/media/sysdata/app/gate/netfilter/op/zones/op_zones_init.nft"
 # POST
 include "/media/sysdata/app/gate/netfilter/sys/ntf_global/post.nft"  
