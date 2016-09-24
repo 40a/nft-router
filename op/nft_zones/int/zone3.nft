@@ -1,0 +1,33 @@
+#!/usr/sbin/nft
+
+#### SET CURRENT ZONE IPs ####
+add element gate_main A_int_zone3___zone_ip_range { 192.168.1.240 - 192.168.1.254}
+####
+
+#### SET DST IP + V ####
+add element gate_main V_int_zone3__dst_ip {8.8.8.8 : accept}
+####
+
+#### SET DST IP RANGE + V ####
+add element gate_main V_int_zone3__dst_ip_range {192.168.21.0/24 : accept}
+####
+
+#### SET DST PORT + V ####
+#add element gate_main V_int_zone3__dst_port {PORT : accept}
+
+####
+
+#### SET DST PORT RANGE + V ####
+#add element gate_main V_int_zone3__dst_port_range  {PORT_RANGE : accept}
+####
+
+#### SET DST IP + PORT + V ####
+#add element gate_main V_int_zone3__dst_ip-port { IP . PORT : accept }
+####
+
+#### SET GATE PORTS ACCESS####
+add element gate_main V_int_zone3__fw_port {80 : accept, 443 : accept}
+add element gate_main V_int_zone3__fw_port {55555 : accept, 20514 : accept}
+add element gate_main V_int_zone3__fw_port_range {20-21 : accept, 30000-32000 : accept}
+add element gate_main V_int_zone3__fw_port_udp {53 : accept}
+####
