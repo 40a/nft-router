@@ -1,0 +1,17 @@
+#!/usr/sbin/nft
+
+#PRE
+include "/media/sysdata/app/gate/netfilter/sys/ntf_global/pre.nft"
+include "/media/sysdata/app/gate/netfilter/sys/ntf_global/ids.nft"
+# ZONE INIT
+include "/media/sysdata/app/gate/netfilter/sys/nft_zones_init/zone1.nft"
+include "/media/sysdata/app/gate/netfilter/sys/nft_zones_init/zone2.nft"
+include "/media/sysdata/app/gate/netfilter/sys/nft_zones_init/zone3.nft"
+# GATE FW
+include "/media/sysdata/app/gate/netfilter/op/fw_rules.nft"
+# ZONES DATA
+include "/media/sysdata/app/gate/netfilter/op/nft_zones/zone1.nft"
+include "/media/sysdata/app/gate/netfilter/op/nft_zones/zone2.nft"
+include "/media/sysdata/app/gate/netfilter/op/nft_zones/zone3.nft"
+# POST
+include "/media/sysdata/app/gate/netfilter/sys/ntf_global/post.nft"  

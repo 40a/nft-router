@@ -1,0 +1,6 @@
+#!/usr/sbin/nft
+
+
+## TO SURICATA
+add rule gate_main S_PREROUTING_TO_IPS queue num 0 bypass
+##

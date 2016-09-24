@@ -1,0 +1,14 @@
+#!/usr/sbin/nft
+
+flush ruleset
+
+## ADD TABLES & CHAINS
+add table gate_main
+add chain gate_main R_OUTPUT_GATE_LOCAL { type filter hook output priority 0;}
+add chain gate_main S_PREROUTING_TO_IPS { type filter hook prerouting priority 0;}
+add chain gate_main R_PREROUTING_NAT { type nat hook prerouting priority 0;}
+add chain gate_main R_POSTROUTING_NAT { type nat hook postrouting priority 0;}
+add chain gate_main F_INPUT_TO_GATE { type filter hook input priority 0;}
+add chain gate_main R_FORWARD { type filter hook forward priority 0; policy drop;}
+##
+

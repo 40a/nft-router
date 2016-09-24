@@ -1,0 +1,19 @@
+#!/usr/sbin/nft
+
+## ACCEPT ALL R,E FORWARDS
+add rule gate_main R_FORWARD counter ct state {established, related} accept
+add rule gate_main R_FORWARD counter log prefix "R_FORWARD: drop " drop
+##
+
+## DEFAULT NAT RULES
+add rule gate_main R_PREROUTING_NAT counter accept
+
+
+add rule gate_main R_POSTROUTING_NAT iif lo accept
+add rule gate_main R_POSTROUTING_NAT oif lo accept
+add rule gate_main R_POSTROUTING_NAT counter oif!=lo snat ip daddr map { {EXT_INTERFACE1_SUBNET} : {EXT_INTERFACE1_MAIN_IP} }
+add rule gate_main R_POSTROUTING_NAT counter oif!=lo snat ip daddr map {10.10.1.0/24 : 10.10.1.251, 192.168.1.0/24  : 192.168.1.249 , 192.168.21.0/24 : 192.168.21.251}
+add rule gate_main R_POSTROUTING_NAT counter oif!=lo snat ip daddr map {0.0.0.0/0 : {EXT_INTERFACE1_MAIN_IP}}
+
+add rule gate_main R_POSTROUTING_NAT counter  log prefix "R_POSTROUTING_NAT: drop " drop
+##
