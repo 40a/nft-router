@@ -1,7 +1,7 @@
 #!/usr/sbin/nft
 
 #### SET CURRENT ZONE IPs ####
-add element gate_main A_ext_zone1___zone_ip_range { 194.204.44.68/29}
+add element gate_main A_ext_zone1___zone_ip_range { {EXT_INTERFACE1_SUBNET} }
 ####
 
 #### SET DST PORT + V ####
