@@ -1,0 +1,32 @@
+#!/usr/sbin/nft
+
+## SET ZONE ext_zone1
+add set gate_main A_ext_zone1___zone_ip { type ipv4_addr;}
+add set gate_main A_ext_zone1___zone_ip_range { type ipv4_addr; flags interval ;}
+
+
+##
+#TO TCP PORT
+add map gate_main V_ext_zone1__dst_port { type inet_service  : verdict;  }
+add rule gate_main F_INPUT_TO_GATE counter ip daddr @A_ext_zone1___zone_ip tcp dport vmap @V_ext_zone1__dst_port
+add rule gate_main F_INPUT_TO_GATE counter ip daddr @A_ext_zone1___zone_ip_range tcp dport vmap @V_ext_zone1__dst_port
+#TO TCP PORT RANGE
+add map gate_main V_ext_zone1__dst_port_range { type inet_service  : verdict;   flags interval ;}
+add rule gate_main F_INPUT_TO_GATE counter ip daddr @A_ext_zone1___zone_ip tcp dport vmap @V_ext_zone1__dst_port_range
+add rule gate_main F_INPUT_TO_GATE counter ip daddr @A_ext_zone1___zone_ip_range tcp dport vmap @V_ext_zone1__dst_port_range
+#TO UDP PORT
+add map gate_main V_ext_zone1__dst_port_udp { type inet_service  : verdict;  }
+add rule gate_main F_INPUT_TO_GATE counter ip daddr @A_ext_zone1___zone_ip udp dport vmap @V_ext_zone1__dst_port_udp
+add rule gate_main F_INPUT_TO_GATE counter ip daddr @A_ext_zone1___zone_ip_range udp dport vmap @V_ext_zone1__dst_port_udp
+##
+
+##
+#TO SINGLE PORT + IP
+add map gate_main V_ext_zone1__src_ip-dst_port { type ipv4_addr .  inet_service : verdict;  }
+add rule gate_main F_INPUT_TO_GATE counter ip daddr @A_ext_zone1___zone_ip ip saddr . tcp dport  vmap @V_ext_zone1__src_ip-dst_port
+add rule gate_main F_INPUT_TO_GATE counter ip daddr @A_ext_zone1___zone_ip_range ip saddr . tcp dport  vmap @V_ext_zone1__src_ip-dst_port
+##TO SINGLE PORT + IP UDP
+add map gate_main V_ext_zone1__src_ip-dst_port_udp { type ipv4_addr .  inet_service : verdict;  }
+add rule gate_main F_INPUT_TO_GATE counter ip daddr @A_ext_zone1___zone_ip ip saddr . tcp dport  vmap @V_ext_zone1__src_ip-dst_port_udp
+add rule gate_main F_INPUT_TO_GATE counter ip daddr @A_ext_zone1___zone_ip_range ip saddr . tcp dport  vmap @V_ext_zone1__src_ip-dst_port_udp
+##

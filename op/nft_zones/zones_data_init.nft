@@ -6,4 +6,4 @@ include "/media/sysdata/app/gate/netfilter/op/nft_zones/int/zone2.nft"
 include "/media/sysdata/app/gate/netfilter/op/nft_zones/int/zone3.nft"
 
 # ZONES DATA INIT - EXT
-
+include "/media/sysdata/app/gate/netfilter/op/nft_zones/ext/zone1.nft"
