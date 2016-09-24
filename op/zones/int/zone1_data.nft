@@ -10,7 +10,6 @@ add element gate_main V_int_zone1__dst_ip {8.8.8.8 : accept}
 
 #### SET DST IP RANGE + V ####
 #add element gate_main V_int_zone1__dst_ip_range {IP_RANGE : accept}
-
 ####
 
 #### SET DST PORT + V ####
