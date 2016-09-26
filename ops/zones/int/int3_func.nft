@@ -1,12 +1,15 @@
 #!/usr/sbin/nft
 
-## ADDITIONAL FUNC - R_FORWARD__zone3 
-add rule gate_main R_FORWARD__zone3 ip saddr @Z_i_int3__zone_ip_range ip daddr @Z_i_int2__zone_ip_range goto SHAPER__zone3
-add rule gate_main R_FORWARD__i_int3 log prefix "R_FORWARD__i_int3: drop " counter drop
-add rule gate_main F_INPUT_TO_GATE__i_int3 log prefix "F_INPUT_TO_GATE__i_int3: drop " counter drop
+## ADDITIONAL FUNC - i_int3 
+add rule gate_main R_FORWARD__i_int3 ip saddr @Z_i_int3__zone_ip_range ip daddr @Z_i_int2__zone_ip_range goto SHAPER__i_int3
 ##
 
-## SHAPER - zone3
-add rule gate_main SHAPER__zone3 ip saddr @Z_i_int3__zone_ip_range oif = net9 limit rate 10 mbytes/second burst 9000 kbytes accept
-add rule gate_main SHAPER__zone3 accept
+## SHAPER - i_int3
+add rule gate_main SHAPER__i_int3 ip saddr @Z_i_int3__zone_ip_range oif net9 limit rate 10 mbytes/second accept
+add rule gate_main SHAPER__i_int3  accept
+##
+
+## DEFAULT DROP - i_int3
+add rule gate_main R_FORWARD__i_int3 log prefix "R_FORWARD__i_int3: drop " counter drop
+add rule gate_main F_INPUT_TO_GATE__i_int3 log prefix "F_INPUT_TO_GATE__i_int3: drop " counter drop
 ##

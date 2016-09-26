@@ -2,10 +2,14 @@
 
 # ZONES DATA INIT - INT
 include "./../ops/zones/int/int1_data.nft"
+include "./../ops/zones/int/int1_func.nft"
+
 include "./../ops/zones/int/int2_data.nft"
+include "./../ops/zones/int/int2_func.nft"
 
 include "./../ops/zones/int/int3_data.nft"
 include "./../ops/zones/int/int3_func.nft"
 
 # ZONES DATA INIT - EXT
 include "./../ops/zones/ext/ext1_data.nft"
+include "./../ops/zones/ext/ext1_func.nft"
