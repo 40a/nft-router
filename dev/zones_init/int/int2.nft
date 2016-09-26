@@ -17,51 +17,51 @@ add chain gate_main SHAPER__zone__int2
 ##
 #TO IP
 add set gate_main A_int_zone__int2__accept__dst_ip { type ipv4_addr;}
-add rule gate_main R_FORWARD__zone__int2 ip saddr @A_int_zone__int2__zone_ip ip daddr set @A_int_zone__int2__accept__dst_ip counter goto SHAPER__zone__int2
-add rule gate_main R_FORWARD__zone__int2 ip saddr @A_int_zone__int2__zone_ip_range ip daddr set @A_int_zone__int2__accept__dst_ip counter goto SHAPER__zone__int2 
+add rule gate_main R_FORWARD__zone__int2 ip saddr @A_int_zone__int2__zone_ip ip daddr  @A_int_zone__int2__accept__dst_ip counter goto SHAPER__zone__int2
+add rule gate_main R_FORWARD__zone__int2 ip saddr @A_int_zone__int2__zone_ip_range ip daddr  @A_int_zone__int2__accept__dst_ip counter goto SHAPER__zone__int2 
 #TO IP RANGE
 add set gate_main A_int_zone__int2__accept__dst_ip_range { type ipv4_addr; flags interval;}
-add rule gate_main R_FORWARD__zone__int2 ip saddr @A_int_zone__int2__zone_ip ip daddr set @A_int_zone__int2__accept__dst_ip_range counter goto SHAPER__zone__int2
-add rule gate_main R_FORWARD__zone__int2 ip saddr @A_int_zone__int2__zone_ip_range ip daddr set @A_int_zone__int2__accept__dst_ip_range counter goto SHAPER__zone__int2
+add rule gate_main R_FORWARD__zone__int2 ip saddr @A_int_zone__int2__zone_ip ip daddr  @A_int_zone__int2__accept__dst_ip_range counter goto SHAPER__zone__int2
+add rule gate_main R_FORWARD__zone__int2 ip saddr @A_int_zone__int2__zone_ip_range ip daddr  @A_int_zone__int2__accept__dst_ip_range counter goto SHAPER__zone__int2
 ##
 
 ##
 #TO TCP PORT
 add set gate_main A_int_zone__int2__accept__dst_port { type inet_service;}
-add rule gate_main R_FORWARD__zone__int2 ip saddr @A_int_zone__int2__zone_ip tcp dport set @A_int_zone__int2__accept__dst_port counter goto SHAPER__zone__int2
-add rule gate_main R_FORWARD__zone__int2 ip saddr @A_int_zone__int2__zone_ip_range tcp dport set @A_int_zone__int2__accept__dst_port counter goto SHAPER__zone__int2
+add rule gate_main R_FORWARD__zone__int2 ip saddr @A_int_zone__int2__zone_ip tcp dport  @A_int_zone__int2__accept__dst_port counter goto SHAPER__zone__int2
+add rule gate_main R_FORWARD__zone__int2 ip saddr @A_int_zone__int2__zone_ip_range tcp dport  @A_int_zone__int2__accept__dst_port counter goto SHAPER__zone__int2
 #TO TCP PORT RANGE
 add set gate_main A_int_zone__int2__accept__dst_port_range { type inet_service; flags interval ;}
-add rule gate_main R_FORWARD__zone__int2 ip saddr @A_int_zone__int2__zone_ip tcp dport set @A_int_zone__int2__accept__dst_port_range counter goto SHAPER__zone__int2
-add rule gate_main R_FORWARD__zone__int2 ip saddr @A_int_zone__int2__zone_ip_range tcp dport set @A_int_zone__int2__accept__dst_port_range counter goto SHAPER__zone__int2
+add rule gate_main R_FORWARD__zone__int2 ip saddr @A_int_zone__int2__zone_ip tcp dport  @A_int_zone__int2__accept__dst_port_range counter goto SHAPER__zone__int2
+add rule gate_main R_FORWARD__zone__int2 ip saddr @A_int_zone__int2__zone_ip_range tcp dport  @A_int_zone__int2__accept__dst_port_range counter goto SHAPER__zone__int2
 #TO UDP PORT
 add set gate_main A_int_zone__int2__accept__dst_port_udp { type inet_service;}
-add rule gate_main R_FORWARD__zone__int2 ip saddr @A_int_zone__int2__zone_ip udp dport set @A_int_zone__int2__accept__dst_port_udp counter goto SHAPER__zone__int2
-add rule gate_main R_FORWARD__zone__int2 ip saddr @A_int_zone__int2__zone_ip_range udp dport set @A_int_zone__int2__accept__dst_port_udp counter goto SHAPER__zone__int2
+add rule gate_main R_FORWARD__zone__int2 ip saddr @A_int_zone__int2__zone_ip udp dport  @A_int_zone__int2__accept__dst_port_udp counter goto SHAPER__zone__int2
+add rule gate_main R_FORWARD__zone__int2 ip saddr @A_int_zone__int2__zone_ip_range udp dport  @A_int_zone__int2__accept__dst_port_udp counter goto SHAPER__zone__int2
 ##
 
 ##
 #TO SINGLE PORT + IP
 add set gate_main A_int_zone__int2__accept__dst_ip-port { type ipv4_addr .  inet_service;}
-add rule gate_main R_FORWARD__zone__int2 ip saddr @A_int_zone__int2__zone_ip ip daddr . tcp dport  set @A_int_zone__int2__accept__dst_ip-port counter goto SHAPER__zone__int2
-add rule gate_main R_FORWARD__zone__int2 ip saddr @A_int_zone__int2__zone_ip_range ip daddr . tcp dport  set @A_int_zone__int2__accept__dst_ip-port counter goto SHAPER__zone__int2
+add rule gate_main R_FORWARD__zone__int2 ip saddr @A_int_zone__int2__zone_ip ip daddr . tcp dport  @A_int_zone__int2__accept__dst_ip-port counter goto SHAPER__zone__int2
+add rule gate_main R_FORWARD__zone__int2 ip saddr @A_int_zone__int2__zone_ip_range ip daddr . tcp dport  @A_int_zone__int2__accept__dst_ip-port counter goto SHAPER__zone__int2
 ##TO SINGLE PORT + IP UDP
 add set gate_main A_int_zone__int2__accept__dst_ip-port_udp { type ipv4_addr .  inet_service; }
-add rule gate_main R_FORWARD__zone__int2 ip saddr @A_int_zone__int2__zone_ip ip daddr . tcp dport  set @A_int_zone__int2__accept__dst_ip-port_udp counter goto SHAPER__zone__int2
-add rule gate_main R_FORWARD__zone__int2 ip saddr @A_int_zone__int2__zone_ip_range ip daddr . tcp dport  set @A_int_zone__int2__accept__dst_ip-port_udp counter goto SHAPER__zone__int2
+add rule gate_main R_FORWARD__zone__int2 ip saddr @A_int_zone__int2__zone_ip ip daddr . tcp dport  @A_int_zone__int2__accept__dst_ip-port_udp counter goto SHAPER__zone__int2
+add rule gate_main R_FORWARD__zone__int2 ip saddr @A_int_zone__int2__zone_ip_range ip daddr . tcp dport  @A_int_zone__int2__accept__dst_ip-port_udp counter goto SHAPER__zone__int2
 ##
 
 ##
 #TO GATE PORT
 add set gate_main A_int_zone__int2__accept__fw_port { type inet_service ;}
-add rule gate_main F_INPUT_TO_GATE__zone__int2 ip saddr @A_int_zone__int2__zone_ip tcp dport set @A_int_zone__int2__accept__fw_port counter goto SHAPER__zone__int2
-add rule gate_main F_INPUT_TO_GATE__zone__int2 ip saddr @A_int_zone__int2__zone_ip_range tcp dport set @A_int_zone__int2__accept__fw_port counter goto SHAPER__zone__int2
+add rule gate_main F_INPUT_TO_GATE__zone__int2 ip saddr @A_int_zone__int2__zone_ip tcp dport  @A_int_zone__int2__accept__fw_port counter goto SHAPER__zone__int2
+add rule gate_main F_INPUT_TO_GATE__zone__int2 ip saddr @A_int_zone__int2__zone_ip_range tcp dport  @A_int_zone__int2__accept__fw_port counter goto SHAPER__zone__int2
 #TO GATE PORT RANGE
 add set gate_main A_int_zone__int2__accept__fw_port_range { type inet_service;  flags interval ;}
-add rule gate_main F_INPUT_TO_GATE__zone__int2 ip saddr @A_int_zone__int2__zone_ip tcp dport set @A_int_zone__int2__accept__fw_port_range counter goto SHAPER__zone__int2
-add rule gate_main F_INPUT_TO_GATE__zone__int2 ip saddr @A_int_zone__int2__zone_ip_range tcp dport set @A_int_zone__int2__accept__fw_port_range counter goto SHAPER__zone__int2
+add rule gate_main F_INPUT_TO_GATE__zone__int2 ip saddr @A_int_zone__int2__zone_ip tcp dport  @A_int_zone__int2__accept__fw_port_range counter goto SHAPER__zone__int2
+add rule gate_main F_INPUT_TO_GATE__zone__int2 ip saddr @A_int_zone__int2__zone_ip_range tcp dport  @A_int_zone__int2__accept__fw_port_range counter goto SHAPER__zone__int2
 #TO GATE PORT UDP
 add set gate_main A_int_zone__int2__accept__fw_port_udp { type inet_service;}
-add rule gate_main F_INPUT_TO_GATE__zone__int2 ip saddr @A_int_zone__int2__zone_ip tcp dport set @A_int_zone__int2__accept__fw_port_udp counter goto SHAPER__zone__int2
-add rule gate_main F_INPUT_TO_GATE__zone__int2 ip saddr @A_int_zone__int2__zone_ip_range tcp dport set @A_int_zone__int2__accept__fw_port_udp counter goto SHAPER__zone__int2
+add rule gate_main F_INPUT_TO_GATE__zone__int2 ip saddr @A_int_zone__int2__zone_ip tcp dport  @A_int_zone__int2__accept__fw_port_udp counter goto SHAPER__zone__int2
+add rule gate_main F_INPUT_TO_GATE__zone__int2 ip saddr @A_int_zone__int2__zone_ip_range tcp dport  @A_int_zone__int2__accept__fw_port_udp counter goto SHAPER__zone__int2
 ##
