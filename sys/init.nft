@@ -1,14 +1,14 @@
 #!/usr/sbin/nft
 
 #PRE
-include "./ntf_global/pre.nft"
-include "./ntf_global/ids.nft"
-#include "./ntf_global/base_security.nft"
-include "./ntf_global/func.nft"
+include "./sys/ntf_global/pre.nft"
+include "./sys/ntf_global/ids.nft"
+#include "./sys/ntf_global/base_security.nft"
+include "./sys/ntf_global/func.nft"
 # ZONES INIT
-include "./../dev/zones_init/sys_zones_init.nft"
+include "./dev/zones_init/sys_zones_init.nft"
 # ZONES DATA INIT
-include "./../ops/zones/netmap.nft"
-include "./../ops/zones/op_zones_init.nft"
+include "./ops/zones/netmap.nft"
+include "./ops/zones/op_zones_init.nft"
 # POST
-include "./ntf_global/post.nft"  
+include "./sys/ntf_global/post.nft"  
