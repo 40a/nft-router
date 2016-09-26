@@ -1,6 +1,6 @@
 #!/usr/sbin/nft
 
 ## ZONES NAT ADRESSSPACE
-add set gate_main A_int__nat__ip_range { type ipv4_addr; flags interval ; type ipv4_addr;}
-add set gate_main A_ext__nat__ip_range { type ipv4_addr; flags interval ; type ipv4_addr;}
+add map gate_main A_int__nat__ip_range { type ipv4_addr; flags interval ; type ipv4_addr;}
+add map gate_main A_ext__nat__ip_range { type ipv4_addr; flags interval ; type ipv4_addr;}
 ##
