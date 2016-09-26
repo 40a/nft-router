@@ -6,4 +6,4 @@ include "./dev/zones_init/int/int2.nft"
 include "./dev/zones_init/int/int3.nft"
 
 # ZONES INIT - EXT
-include "./../dev/zones_init/ext/ext1.nft"
+include "./dev/zones_init/ext/ext1.nft"
