@@ -11,8 +11,8 @@ add rule gate_main R_FORWARD ip saddr @Z_e_ext1__zone_ip goto R_FORWARD__e_ext1
 add rule gate_main R_FORWARD ip saddr @Z_e_ext1__zone_ip_range goto R_FORWARD__e_ext1
 add chain gate_main F_INPUT_TO_GATE__e_ext1
 add rule gate_main F_INPUT_TO_GATE__e_ext1 ct state {established, related} accept
-add rule gate_main F_INPUT_TO_GATE ip saddr @Z_e_ext1__zone_ip goto F_INPUT_TO_GATE__e_ext1
-add rule gate_main F_INPUT_TO_GATE ip saddr @Z_e_ext1__zone_ip_range goto F_INPUT_TO_GATE__e_ext1
+add rule gate_main F_INPUT_TO_GATE ip daddr @Z_e_ext1__zone_ip goto F_INPUT_TO_GATE__e_ext1
+add rule gate_main F_INPUT_TO_GATE ip daddr @Z_e_ext1__zone_ip_range goto F_INPUT_TO_GATE__e_ext1
 add chain gate_main SHAPER__e_ext1
 add rule gate_main SHAPER__e_ext1 ct state {established, related} accept
 
