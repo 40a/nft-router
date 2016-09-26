@@ -28,4 +28,4 @@ sysctl -w net.ipv4.route.flush=1
 sysctl -w net.ipv6.route.flush=1
 
 sh ../dev/iprules.sh
-sh nft.sh
+nft flush ruleset && nft -f init.nft
