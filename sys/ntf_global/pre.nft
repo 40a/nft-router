@@ -19,3 +19,8 @@ add rule gate_main R_FORWARD ct state {established, related} accept
 ## DEFAULT NAT RULES
 add rule gate_main R_PREROUTING_NAT accept
 ##
+
+## ACCEPT ALL lo
+add rule gate_main R_POSTROUTING_NAT iif lo accept
+add rule gate_main R_POSTROUTING_NAT oif lo accept
+##
