@@ -9,7 +9,7 @@ add chain gate_main S_PREROUTING_TO_IPS { type filter hook prerouting priority 0
 add chain gate_main R_PREROUTING_NAT { type nat hook prerouting priority 0;}
 add chain gate_main R_POSTROUTING_NAT { type nat hook postrouting priority 0;}
 add chain gate_main F_INPUT_TO_GATE { type filter hook input priority 0;}
-add chain gate_main R_FORWARD { type filter hook forward priority 0; policy drop;}
+add chain gate_main R_FORWARD { type filter hook forward priority 0;}
 ##
 
 ## ACCEPT ALL R,E FORWARDS
