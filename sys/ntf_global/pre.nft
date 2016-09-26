@@ -12,7 +12,8 @@ add chain gate_main F_INPUT_TO_GATE { type filter hook input priority 0;}
 add chain gate_main R_FORWARD { type filter hook forward priority 0;}
 ##
 
-## ACCEPT ALL R,E FORWARDS
+
+## ACCEPT ALL E,R FORWARDS
 add rule gate_main R_FORWARD ct state {established, related} accept
 ##
 
@@ -23,4 +24,11 @@ add rule gate_main R_PREROUTING_NAT accept
 ## ACCEPT ALL lo
 add rule gate_main R_POSTROUTING_NAT iif lo accept
 add rule gate_main R_POSTROUTING_NAT oif lo accept
+##
+
+## TO\FROM GATE
+add rule gate_main R_OUTPUT_GATE_LOCAL accept
+add rule gate_main F_INPUT_TO_GATE ct state established, related accept
+add rule gate_main F_INPUT_TO_GATE iif lo accept
+add rule gate_main F_INPUT_TO_GATE oif lo accept
 ##

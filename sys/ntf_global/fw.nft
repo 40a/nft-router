@@ -1,13 +1,3 @@
 #!/usr/sbin/nft
 
-## LOCAL GATE FW RULES, JUST A SCRATCH FOR THE FUTURE RE-ARCH
-add rule gate_main F_INPUT_TO_GATE ct state established, related accept
-add rule gate_main F_INPUT_TO_GATE iif lo accept
-add rule gate_main F_INPUT_TO_GATE oif lo accept
-##
 
-## LOCAL GATE OUTPUT RULES
-add rule gate_main R_OUTPUT_GATE_LOCAL ct state new, established, related accept
-#add rule gate_main R_OUTPUT_GATE_LOCAL tcp sport {80, 443} accept
-add rule gate_main R_OUTPUT_GATE_LOCAL log prefix "R_OUTPUT_GATE_LOCAL: accept "  counter accept
-#add rule gate_main R_OUTPUT_GATE_LOCAL log prefix "R_OUTPUT_GATE_LOCAL: drop " counter drop
