@@ -17,26 +17,26 @@ add chain gate_main SHAPER__zone__ext1
 
 ##
 #TO TCP PORT
-add map gate_main A_ext_zone__ext1__accept__dst_port { type inet_service ;  }
-add rule gate_main R_FORWARD__zone__ext1 ip saddr @A_ext_zone__ext1__zone_ip tcp dport map @A_ext_zone__ext1__accept__dst_port counter goto SHAPER__zone__ext1
-add rule gate_main R_FORWARD__zone__ext1 ip saddr @A_ext_zone__ext1__zone_ip_range tcp dport map @A_ext_zone__ext1__accept__dst_port counter goto SHAPER__zone__ext1
+add set gate_main A_ext_zone__ext1__accept__dst_port { type inet_service ;  }
+add rule gate_main R_FORWARD__zone__ext1 ip saddr @A_ext_zone__ext1__zone_ip tcp dport  @A_ext_zone__ext1__accept__dst_port counter goto SHAPER__zone__ext1
+add rule gate_main R_FORWARD__zone__ext1 ip saddr @A_ext_zone__ext1__zone_ip_range tcp dport  @A_ext_zone__ext1__accept__dst_port counter goto SHAPER__zone__ext1
 #TO TCP PORT RANGE
-add map gate_main A_ext_zone__ext1__accept__dst_port_range { type inet_service ;   flags interval ;}
-add rule gate_main R_FORWARD__zone__ext1 ip saddr @A_ext_zone__ext1__zone_ip tcp dport map @A_ext_zone__ext1__accept__dst_port_range counter goto SHAPER__zone__ext1
-add rule gate_main R_FORWARD__zone__ext1 ip saddr @A_ext_zone__ext1__zone_ip_range tcp dport map @A_ext_zone__ext1__accept__dst_port_range counter goto SHAPER__zone__ext1
+add set gate_main A_ext_zone__ext1__accept__dst_port_range { type inet_service ;   flags interval ;}
+add rule gate_main R_FORWARD__zone__ext1 ip saddr @A_ext_zone__ext1__zone_ip tcp dport  @A_ext_zone__ext1__accept__dst_port_range counter goto SHAPER__zone__ext1
+add rule gate_main R_FORWARD__zone__ext1 ip saddr @A_ext_zone__ext1__zone_ip_range tcp dport  @A_ext_zone__ext1__accept__dst_port_range counter goto SHAPER__zone__ext1
 #TO UDP PORT
-add map gate_main A_ext_zone__ext1__accept__dst_port_udp { type inet_service ;  }
-add rule gate_main R_FORWARD__zone__ext1 ip saddr @A_ext_zone__ext1__zone_ip udp dport map @A_ext_zone__ext1__accept__dst_port_udp counter goto SHAPER__zone__ext1
-add rule gate_main R_FORWARD__zone__ext1 ip saddr @A_ext_zone__ext1__zone_ip_range udp dport map @A_ext_zone__ext1__accept__dst_port_udp counter goto SHAPER__zone__ext1
+add set gate_main A_ext_zone__ext1__accept__dst_port_udp { type inet_service ;  }
+add rule gate_main R_FORWARD__zone__ext1 ip saddr @A_ext_zone__ext1__zone_ip udp dport  @A_ext_zone__ext1__accept__dst_port_udp counter goto SHAPER__zone__ext1
+add rule gate_main R_FORWARD__zone__ext1 ip saddr @A_ext_zone__ext1__zone_ip_range udp dport  @A_ext_zone__ext1__accept__dst_port_udp counter goto SHAPER__zone__ext1
 ##
 
 ##
 #TO SINGLE PORT + IP
-add map gate_main A_ext_zone__ext1__accept__dst_ip-port { type ipv4_addr .  inet_service;  }
-add rule gate_main R_FORWARD__zone__ext1 ip saddr @A_ext_zone__ext1__zone_ip ip daddr . tcp dport  map @A_ext_zone__ext1__accept__dst_ip-port counter goto SHAPER__zone__ext1
-add rule gate_main R_FORWARD__zone__ext1 ip saddr @A_ext_zone__ext1__zone_ip_range ip daddr . tcp dport  map @A_ext_zone__ext1__accept__dst_ip-port counter goto SHAPER__zone__ext1
+add set gate_main A_ext_zone__ext1__accept__dst_ip-port { type ipv4_addr .  inet_service;  }
+add rule gate_main R_FORWARD__zone__ext1 ip saddr @A_ext_zone__ext1__zone_ip ip daddr . tcp dport   @A_ext_zone__ext1__accept__dst_ip-port counter goto SHAPER__zone__ext1
+add rule gate_main R_FORWARD__zone__ext1 ip saddr @A_ext_zone__ext1__zone_ip_range ip daddr . tcp dport   @A_ext_zone__ext1__accept__dst_ip-port counter goto SHAPER__zone__ext1
 ##TO SINGLE PORT + IP UDP
-add map gate_main A_ext_zone__ext1__accept__dst_ip-port_udp { type ipv4_addr .  inet_service;  }
-add rule gate_main R_FORWARD__zone__ext1 ip saddr @A_ext_zone__ext1__zone_ip ip daddr . tcp dport  map @A_ext_zone__ext1__accept__dst_ip-port_udp counter goto SHAPER__zone__ext1
-add rule gate_main R_FORWARD__zone__ext1 ip saddr @A_ext_zone__ext1__zone_ip_range ip daddr . tcp dport  map @A_ext_zone__ext1__accept__dst_ip-port_udp counter goto SHAPER__zone__ext1
+add set gate_main A_ext_zone__ext1__accept__dst_ip-port_udp { type ipv4_addr .  inet_service;  }
+add rule gate_main R_FORWARD__zone__ext1 ip saddr @A_ext_zone__ext1__zone_ip ip daddr . tcp dport   @A_ext_zone__ext1__accept__dst_ip-port_udp counter goto SHAPER__zone__ext1
+add rule gate_main R_FORWARD__zone__ext1 ip saddr @A_ext_zone__ext1__zone_ip_range ip daddr . tcp dport   @A_ext_zone__ext1__accept__dst_ip-port_udp counter goto SHAPER__zone__ext1
 ##
