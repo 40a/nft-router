@@ -13,7 +13,7 @@ add element gate_main Z_i_int3__A_dst_ip {8.8.8.8}
 ####
 
 #### SET DST PORT ####
-add element gate_main Z_i_int2__A_dst_port {80, 443, 8080}
+add element gate_main Z_i_int3__A_dst_port {80, 443, 8080}
 ####
 
 #### SET DST PORT RANGE ####
