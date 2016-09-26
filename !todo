@@ -1,17 +1,16 @@
+## 1-st citizens
++ add get from ip a
 + systemd start service
-
 + two types of start scripts: cold & warm
++ Concatenations with ranges    
++ rule_func with additional NAT addresses
++ shaping: limit rate 10/second, limit rate 10 mbytes/second burst 9000 kbytes
 
+##
 + jump & goto in chains
-
-+ nf_conntrack hashsize
 
 +next router if primary goes down
 ip route add default scope global nexthop 
-
-+ shaping
-limit rate 10/second
-limit rate 10 mbytes/second burst 9000 kbytes
 
 + prio & mark
 
@@ -20,12 +19,6 @@ limit rate 10 mbytes/second burst 9000 kbytes
 + Ingress hook, tc-like L2 
 
 + "meta nftrace set 1" as trace
-
-+ counter position, see https://wiki.nftables.org/wiki-nftables/index.php/Counters
-
-+ Concatenations with ranges
-
-+ rule_func with additional NAT addresses
 
 + ICMP tuning
 
@@ -36,5 +29,3 @@ ct helper "ftp"
 
 + Flow table support - native replacement for the   hashlimit match in iptables.
  # nft add rule filter input tcp dport 22 ct state new  flow table ssh { ip saddr limit rate 10/second } accept
- 
-

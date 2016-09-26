@@ -12,3 +12,10 @@ add chain gate_main F_INPUT_TO_GATE { type filter hook input priority 0;}
 add chain gate_main R_FORWARD { type filter hook forward priority 0; policy drop;}
 ##
 
+## ACCEPT ALL R,E FORWARDS
+add rule gate_main R_FORWARD ct state {established, related} accept
+##
+
+## DEFAULT NAT RULES
+add rule gate_main R_PREROUTING_NAT accept
+##

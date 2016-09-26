@@ -5,6 +5,8 @@
 /sbin/ip route add default via {DEF_GW}
 /sbin/ip rule add from 10.0.0.0/8 table {EXT_INTERFACE1_NAME} pref 30000
 
+## add get from ip a
+
 /sbin/ip route add {EXT_INTERFACE1_SUBNET} via {EXT_INTERFACE1_MAIN_IP} dev {EXT_INTERFACE1_NAME} table {EXT_INTERFACE1_NAME}
 /sbin/ip route add default via {EXT_INTERFACE1_DEF_GW} dev {EXT_INTERFACE1_NAME} src {EXT_INTERFACE1_MAIN_IP} table {EXT_INTERFACE1_NAME}
 /sbin/ip rule add from {EXT_INTERFACE1_SUBNET} table {EXT_INTERFACE1_NAME} pref 10000
