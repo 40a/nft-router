@@ -49,8 +49,8 @@ add rule gate_main R_FORWARD__e_ext1 ip daddr @Z_e_ext1__zone_ip ip daddr . tcp 
 add rule gate_main R_FORWARD__e_ext1 ip daddr @Z_e_ext1__zone_ip_range ip daddr . tcp dport  @Z_e_ext1__A_dst_ip-port counter goto SHAPER__e_ext1
 ##TO SINGLE PORT + IP UDP
 add set gate_main Z_e_ext1__A_dst_ip-port_udp { type ipv4_addr .  inet_service; }
-add rule gate_main R_FORWARD__e_ext1 ip daddr @Z_e_ext1__zone_ip ip daddr . tcp dport  @Z_e_ext1__A_dst_ip-port_udp counter goto SHAPER__e_ext1
-add rule gate_main R_FORWARD__e_ext1 ip daddr @Z_e_ext1__zone_ip_range ip daddr . tcp dport  @Z_e_ext1__A_dst_ip-port_udp counter goto SHAPER__e_ext1
+add rule gate_main R_FORWARD__e_ext1 ip daddr @Z_e_ext1__zone_ip ip daddr . udp dport  @Z_e_ext1__A_dst_ip-port_udp counter goto SHAPER__e_ext1
+add rule gate_main R_FORWARD__e_ext1 ip daddr @Z_e_ext1__zone_ip_range ip daddr . udp dport  @Z_e_ext1__A_dst_ip-port_udp counter goto SHAPER__e_ext1
 ##
 
 ##
@@ -64,6 +64,6 @@ add rule gate_main F_INPUT_TO_GATE__e_ext1 ip daddr @Z_e_ext1__zone_ip tcp dport
 add rule gate_main F_INPUT_TO_GATE__e_ext1 ip daddr @Z_e_ext1__zone_ip_range tcp dport  @Z_e_ext1__A_fw_port_range counter goto SHAPER__e_ext1
 #TO GATE PORT UDP
 add set gate_main Z_e_ext1__A_fw_port_udp { type inet_service;}
-add rule gate_main F_INPUT_TO_GATE__e_ext1 ip daddr @Z_e_ext1__zone_ip tcp dport  @Z_e_ext1__A_fw_port_udp counter goto SHAPER__e_ext1
-add rule gate_main F_INPUT_TO_GATE__e_ext1 ip daddr @Z_e_ext1__zone_ip_range tcp dport  @Z_e_ext1__A_fw_port_udp counter goto SHAPER__e_ext1
+add rule gate_main F_INPUT_TO_GATE__e_ext1 ip daddr @Z_e_ext1__zone_ip udp dport  @Z_e_ext1__A_fw_port_udp counter goto SHAPER__e_ext1
+add rule gate_main F_INPUT_TO_GATE__e_ext1 ip daddr @Z_e_ext1__zone_ip_range udp dport  @Z_e_ext1__A_fw_port_udp counter goto SHAPER__e_ext1
 ##

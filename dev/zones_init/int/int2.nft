@@ -50,8 +50,8 @@ add rule gate_main R_FORWARD__i_int2 ip saddr @Z_i_int2__zone_ip ip daddr . tcp 
 add rule gate_main R_FORWARD__i_int2 ip saddr @Z_i_int2__zone_ip_range ip daddr . tcp dport  @Z_i_int2__A_dst_ip-port counter goto SHAPER__i_int2
 ##TO SINGLE PORT + IP UDP
 add set gate_main Z_i_int2__A_dst_ip-port_udp { type ipv4_addr .  inet_service; }
-add rule gate_main R_FORWARD__i_int2 ip saddr @Z_i_int2__zone_ip ip daddr . tcp dport  @Z_i_int2__A_dst_ip-port_udp counter goto SHAPER__i_int2
-add rule gate_main R_FORWARD__i_int2 ip saddr @Z_i_int2__zone_ip_range ip daddr . tcp dport  @Z_i_int2__A_dst_ip-port_udp counter goto SHAPER__i_int2
+add rule gate_main R_FORWARD__i_int2 ip saddr @Z_i_int2__zone_ip ip daddr . udp dport  @Z_i_int2__A_dst_ip-port_udp counter goto SHAPER__i_int2
+add rule gate_main R_FORWARD__i_int2 ip saddr @Z_i_int2__zone_ip_range ip daddr . udp dport  @Z_i_int2__A_dst_ip-port_udp counter goto SHAPER__i_int2
 ##
 
 ##
