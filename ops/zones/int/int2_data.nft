@@ -1,35 +1,35 @@
 #!/usr/sbin/nft
 
 #### SET CURRENT ZONE IPs ####
-add element gate_main A_int_zone__int2__zone_ip_range { 192.168.21.0/24}
+add element gate_main Z_i_int3__zone_ip_range { 192.168.21.0/24}
 ####
 
 #### SET DST IP + V ####
-add element gate_main A_int_zone__int2__accept__dst_ip {8.8.8.8}
+add element gate_main Z_i_int2__A_dst_ip {8.8.8.8}
 ####
 
 #### SET DST IP RANGE + V ####
-add element gate_main A_int_zone__int2__accept__dst_ip_range {192.168.1.1 - 192.168.1.198}
-add element gate_main A_int_zone__int2__accept__dst_ip_range {192.168.1.200 - 192.168.1.254}
+add element gate_main Z_i_int2__A_dst_ip_range {192.168.1.1 - 192.168.1.198}
+add element gate_main Z_i_int2__A_dst_ip_range {192.168.1.200 - 192.168.1.254}
 ####
 
 #### SET DST PORT + V ####
-add element gate_main A_int_zone__int2__accept__dst_port {110, 587, 995}
-add element gate_main A_int_zone__int2__accept__dst_port {80, 443, 8080}
-add element gate_main A_int_zone__int2__accept__dst_port_udp {53, 443}
+add element gate_main Z_i_int2__A_dst_port {110, 587, 995}
+add element gate_main Z_i_int2__A_dst_port {80, 443, 8080}
+add element gate_main Z_i_int2__A_dst_port_udp {53, 443}
 ####
 
 #### SET DST PORT RANGE + V ####
-#add element gate_main A_int_zone__int2__accept__dst_port_range  {PORT_RANGE}
+#add element gate_main Z_i_int2__A_dst_port_range  {PORT_RANGE}
 ####
 
 #### SET DST IP + PORT + V ####
-#add element gate_main A_int_zone__int2__accept__dst_ip-port { IP . PORT }
+#add element gate_main Z_i_int2__A_dst_ip-port { IP . PORT }
 ####
 
 #### SET GATE PORTS ACCESS####
-add element gate_main A_int_zone__int2__accept__fw_port {80, 443}
-add element gate_main A_int_zone__int2__accept__fw_port {55555, 20514}
-add element gate_main A_int_zone__int2__accept__fw_port_range {20-21, 30000-32000}
-add element gate_main A_int_zone__int2__accept__fw_port_udp {53}
+add element gate_main Z_i_int2__A_fw_port {80, 443}
+add element gate_main Z_i_int2__A_fw_port {55555, 20514}
+add element gate_main Z_i_int2__A_fw_port_range {20-21, 30000-32000}
+add element gate_main Z_i_int2__A_fw_port_udp {53}
 ####
