@@ -1,35 +1,35 @@
 #!/usr/sbin/nft
 
 #### SET CURRENT ZONE IPs ####
-add element gate_main A_int_zone2___zone_ip_range { 192.168.21.0/24}
+add element gate_main A_int_zone__int2__zone_ip_range { 192.168.21.0/24}
 ####
 
 #### SET DST IP + V ####
-add element gate_main V_int_zone2__dst_ip {8.8.8.8 : accept}
+add element gate_main A_int_zone__int2__accept__dst_ip {8.8.8.8 : accept}
 ####
 
 #### SET DST IP RANGE + V ####
-add element gate_main V_int_zone2__dst_ip_range {192.168.1.1 - 192.168.1.198 : accept}
-add element gate_main V_int_zone2__dst_ip_range {192.168.1.200 - 192.168.1.254 : accept}
+add element gate_main A_int_zone__int2__accept__dst_ip_range {192.168.1.1 - 192.168.1.198 : accept}
+add element gate_main A_int_zone__int2__accept__dst_ip_range {192.168.1.200 - 192.168.1.254 : accept}
 ####
 
 #### SET DST PORT + V ####
-add element gate_main V_int_zone2__dst_port {110 : accept, 587: accept, 995 : accept}
-add element gate_main V_int_zone2__dst_port {80 : accept, 443 : accept, 8080: accept}
-add element gate_main V_int_zone2__dst_port_udp {53 : accept, 443: accept}
+add element gate_main A_int_zone__int2__accept__dst_port {110 : accept, 587: accept, 995 : accept}
+add element gate_main A_int_zone__int2__accept__dst_port {80 : accept, 443 : accept, 8080: accept}
+add element gate_main A_int_zone__int2__accept__dst_port_udp {53 : accept, 443: accept}
 ####
 
 #### SET DST PORT RANGE + V ####
-#add element gate_main V_int_zone2__dst_port_range  {PORT_RANGE : accept}
+#add element gate_main A_int_zone__int2__accept__dst_port_range  {PORT_RANGE : accept}
 ####
 
 #### SET DST IP + PORT + V ####
-#add element gate_main V_int_zone2__dst_ip-port { IP . PORT : accept }
+#add element gate_main A_int_zone__int2__accept__dst_ip-port { IP . PORT : accept }
 ####
 
 #### SET GATE PORTS ACCESS####
-add element gate_main V_int_zone2__fw_port {80 : accept, 443 : accept}
-add element gate_main V_int_zone2__fw_port {55555 : accept, 20514 : accept}
-add element gate_main V_int_zone2__fw_port_range {20-21 : accept, 30000-32000 : accept}
-add element gate_main V_int_zone2__fw_port_udp {53 : accept}
+add element gate_main A_int_zone__int2__accept__fw_port {80 : accept, 443 : accept}
+add element gate_main A_int_zone__int2__accept__fw_port {55555 : accept, 20514 : accept}
+add element gate_main A_int_zone__int2__accept__fw_port_range {20-21 : accept, 30000-32000 : accept}
+add element gate_main A_int_zone__int2__accept__fw_port_udp {53 : accept}
 ####

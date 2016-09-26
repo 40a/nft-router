@@ -13,8 +13,7 @@ add element gate_main A_int_zone__int3__accept__dst_ip {8.8.8.8}
 ####
 
 #### SET DST PORT ####
-#add element gate_main A_int_zone3__dst_port {PORT}
-
+#add element gate_main A_int_zone__int3__accept__dst_port {PORT}
 ####
 
 #### SET DST PORT RANGE ####
