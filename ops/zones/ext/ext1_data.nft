@@ -5,14 +5,14 @@ add element gate_main Z_e_ext3__zone_ip_range { {EXT_INTERFACE1_SUBNET} }
 ####
 
 #### SET DST PORT + V ####
-add element gate_main Z_i_int1__A__dst_port {22 }
-add element gate_main Z_i_int1__A__dst_port {80 , 443 }
+add element gate_main Z_i_int1__A_dst_port {22 }
+add element gate_main Z_i_int1__A_dst_port {80 , 443 }
 ####
 
 #### SET DST PORT RANGE + V ####
-add element gate_main Z_i_int1__A__dst_port_range  {8000-8001 }
+add element gate_main Z_i_int1__A_dst_port_range  {8000-8001 }
 ####
 
 #### SET SRC IP + DST PORT + V ####
-#add element gate_main Z_i_int1__A__dst_ip-port  { IP . PORT  }
+#add element gate_main Z_i_int1__A_dst_ip-port  { IP . PORT  }
 ####
