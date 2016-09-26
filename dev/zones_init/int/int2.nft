@@ -62,6 +62,6 @@ add rule gate_main F_INPUT_TO_GATE__i_int2 ip saddr @Z_i_int2__zone_ip tcp dport
 add rule gate_main F_INPUT_TO_GATE__i_int2 ip saddr @Z_i_int2__zone_ip_range tcp dport  @Z_i_int2__A_fw_port_range counter goto SHAPER__i_int2
 #TO GATE PORT UDP
 add set gate_main Z_i_int2__A_fw_port_udp { type inet_service;}
-add rule gate_main F_INPUT_TO_GATE__i_int2 ip saddr @Z_i_int2__zone_ip tcp dport  @Z_i_int2__A_fw_port_udp counter goto SHAPER__i_int2
-add rule gate_main F_INPUT_TO_GATE__i_int2 ip saddr @Z_i_int2__zone_ip_range tcp dport  @Z_i_int2__A_fw_port_udp counter goto SHAPER__i_int2
+add rule gate_main F_INPUT_TO_GATE__i_int2 ip saddr @Z_i_int2__zone_ip udp dport  @Z_i_int2__A_fw_port_udp counter goto SHAPER__i_int2
+add rule gate_main F_INPUT_TO_GATE__i_int2 ip saddr @Z_i_int2__zone_ip_range udp dport  @Z_i_int2__A_fw_port_udp counter goto SHAPER__i_int2
 ##

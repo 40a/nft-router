@@ -12,7 +12,9 @@ add rule gate_main R_POSTROUTING_NAT oif!=lo snat ip daddr map @Z_e__nat__ip_ran
 
 ## DROP ALL OTHERS
 add rule gate_main R_POSTROUTING_NAT log prefix "R_POSTROUTING_NAT: drop " counter drop
+add rule gate_main F_INPUT_TO_GATE udp counter drop
 add rule gate_main F_INPUT_TO_GATE log prefix "F_INPUT_TO_GATE: drop " counter drop
+add rule gate_main R_FORWARD udp counter drop
 add rule gate_main R_FORWARD log prefix "R_FORWARD: drop " counter drop
 
 ##
