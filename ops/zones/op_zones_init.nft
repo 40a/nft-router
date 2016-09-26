@@ -1,9 +1,9 @@
 #!/usr/sbin/nft
 
 # ZONES DATA INIT - INT
-include "./../dev/zones_init/int/int1_data.nft"
-include "./../dev/zones_init/int/int2_data.nft"
-include "./../dev/zones_init/int/int3_data.nft"
+include "./../ops/zones/int/int1_data.nft"
+include "./../ops/zones/int/int2_data.nft"
+include "./../ops/zones/int/int3_data.nft"
 
 # ZONES DATA INIT - EXT
-include "./../dev/zones_init/ext/ext1_data.nft"
+include "./../ops/zones/ext/ext1_data.nft"
