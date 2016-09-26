@@ -5,6 +5,6 @@ add rule gate_main R_FORWARD__zone3 ip saddr @Z_i_int3__zone_ip_range ip daddr @
 ##
 
 ## SHAPER - zone3
-add rule gate_main SHAPER__zone3 ip saddr @Z_i_int3__zone_ip_range oif = net9 limit rate 10 mbytes/second burst 9000 kbytes accept
+add rule gate_main SHAPER__zone3 ip saddr @Z_i_int3__zone_ip_range oif net9 limit rate 10 mbytes/second burst 9000 kbytes accept
 add rule gate_main SHAPER__zone3 accept
 ##
