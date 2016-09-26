@@ -1,9 +1,5 @@
 #!/usr/sbin/nft
 
-## ACCEPT ALL lo
-add rule gate_main R_POSTROUTING_NAT iif lo accept
-add rule gate_main R_POSTROUTING_NAT oif lo accept
-##
 
 ## ZONES NAT ADRESSSPACE
 add rule gate_main R_POSTROUTING_NAT oif!=lo snat ip daddr map @Z_i__nat__ip_range
