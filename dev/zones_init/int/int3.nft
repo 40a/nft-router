@@ -6,13 +6,13 @@ add set gate_main Z_i_int3__zone_ip_range { type ipv4_addr; flags interval ;}
 
 ## ZONE CHAINS - int_i_int3
 add chain gate_main R_FORWARD__i_int3
+add rule gate_main R_FORWARD__i_int3 ct state {established, related} accept
 add rule gate_main R_FORWARD ip saddr @Z_i_int3__zone_ip goto R_FORWARD__i_int3
 add rule gate_main R_FORWARD ip saddr @Z_i_int3__zone_ip_range goto R_FORWARD__i_int3
-add rule gate_main R_FORWARD__i_int3 ct state {established, related} accept
 add chain gate_main F_INPUT_TO_GATE__i_int3
+add rule gate_main F_INPUT_TO_GATE__i_int3 ct state {established, related} accept
 add rule gate_main F_INPUT_TO_GATE ip saddr @Z_i_int3__zone_ip goto F_INPUT_TO_GATE__i_int3
 add rule gate_main F_INPUT_TO_GATE ip saddr @Z_i_int3__zone_ip_range goto F_INPUT_TO_GATE__i_int3
-add rule gate_main F_INPUT_TO_GATE__i_int3 ct state {established, related} accept
 add chain gate_main SHAPER__i_int3
 add rule gate_main SHAPER__i_int3 ct state {established, related} accept
 ##
