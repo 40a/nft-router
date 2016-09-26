@@ -9,7 +9,8 @@ add rule gate_main SHAPER__i_int2 ip saddr @Z_i_int2__zone_ip_range oif net9 lim
 add rule gate_main SHAPER__i_int2  accept
 ##
 
-## DEFAULT DROP - R_FORWARD__i_int2
+## DEFAULT DROP - i_int2
 add rule gate_main R_FORWARD__i_int2 log prefix "R_FORWARD__i_int2: drop " counter drop
+add rule gate_main F_INPUT_TO_GATE__i_int2 ip protocol udp counter drop
 add rule gate_main F_INPUT_TO_GATE__i_int2 log prefix "F_INPUT_TO_GATE__i_int2: drop " counter drop
 ##

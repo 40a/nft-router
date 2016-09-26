@@ -9,5 +9,6 @@ add rule gate_main SHAPER__e_ext1  accept
 
 ## DEFAULT DROP - R_FORWARD__e_ext1
 add rule gate_main R_FORWARD__e_ext1 log prefix "R_FORWARD__e_ext1: drop " counter drop
+add rule gate_main F_INPUT_TO_GATE__e_ext1 ip protocol udp counter drop
 add rule gate_main F_INPUT_TO_GATE__e_ext1 log prefix "F_INPUT_TO_GATE__e_ext1: drop " counter drop
 ##

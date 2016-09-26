@@ -11,5 +11,6 @@ add rule gate_main SHAPER__i_int3  accept
 
 ## DEFAULT DROP - i_int3
 add rule gate_main R_FORWARD__i_int3 log prefix "R_FORWARD__i_int3: drop " counter drop
+add rule gate_main F_INPUT_TO_GATE__i_int3 ip protocol udp counter drop
 add rule gate_main F_INPUT_TO_GATE__i_int3 log prefix "F_INPUT_TO_GATE__i_int3: drop " counter drop
 ##
