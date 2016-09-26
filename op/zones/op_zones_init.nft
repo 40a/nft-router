@@ -1,9 +1,0 @@
-#!/usr/sbin/nft
-
-# ZONES DATA INIT - INT
-include "/media/sysdata/app/gate/netfilter/op/zones/int/zone1_data.nft"
-include "/media/sysdata/app/gate/netfilter/op/zones/int/zone2_data.nft"
-include "/media/sysdata/app/gate/netfilter/op/zones/int/zone3_data.nft"
-
-# ZONES DATA INIT - EXT
-include "/media/sysdata/app/gate/netfilter/op/zones/ext/zone1_data.nft"
