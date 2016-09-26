@@ -1,0 +1,18 @@
+#!/usr/sbin/nft
+
+#### SET CURRENT ZONE IPs ####
+add element gate_main A_ext_zone1___zone_ip_range { {EXT_INTERFACE1_SUBNET} }
+####
+
+#### SET DST PORT + V ####
+add element gate_main V_ext_zone1__dst_port {22 : accept}
+add element gate_main V_ext_zone1__dst_port {80 : accept, 443 : accept}
+####
+
+#### SET DST PORT RANGE + V ####
+add element gate_main V_ext_zone1__dst_port_range  {8000-8001 : accept}
+####
+
+#### SET SRC IP + DST PORT + V ####
+#add element gate_main V_ext_zone1__src_ip-dst_port { IP . PORT : accept }
+####

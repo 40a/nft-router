@@ -1,0 +1,10 @@
+#!/usr/sbin/nft
+
+## ADDITIONAL FUNC - R_FORWARD__zone3 
+add rule gate_main R_FORWARD__zone3 ip saddr @A_int_zone__int3__zone_ip_range ip daddr @A_int_zone__int2__zone_ip_range goto SHAPER__zone3
+##
+
+## SHAPER - zone3
+add rule gate_main SHAPER__zone3 ip saddr @A_int_zone__int3__zone_ip_range oif = net9 limit rate 10 mbytes/second burst 9000 kbytes accept
+add rule gate_main SHAPER__zone3 accept
+##

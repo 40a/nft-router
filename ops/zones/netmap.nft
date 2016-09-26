@@ -1,0 +1,9 @@
+#!/usr/sbin/nft
+
+#### INTERNAL NAT FROM ####
+add element gate_main A_int__nat__ip_range  {10.10.1.0/24 : 10.10.1.251, 192.168.1.0/24  : 192.168.1.249 , 192.168.21.0/24 : 192.168.21.251}
+####
+
+#### EXTERNAL NAT FROM ####
+add element gate_main A_int__nat__ip_range  {10.10.1.0/24 : 10.10.1.251, 0.0.0.0/0  : 192.168.1.249 }
+####
